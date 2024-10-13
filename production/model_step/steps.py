@@ -7,13 +7,13 @@ from .func import Models, Predictor, Evaluator
 
 
 @step
-def training(model_name: str, X_train: np.ndarray, y_train: pd.Series) -> ClassifierMixin:
+def training(model_name: str, X_train: np.ndarray, y_train: pd.Series) -> Annotated[ClassifierMixin, 'trained_model']:
     model = Models(model_name)
     trained_model = model.train_model(X_train, y_train)
     return trained_model
 
 @step
-def prediction(model: ClassifierMixin, X_test: np.ndarray) -> np.ndarray:
+def prediction(model: ClassifierMixin, X_test: np.ndarray) -> Annotated[np.ndarray, 'y_pred']:
     predictor = Predictor(model, X_test)
     y_pred = predictor.predict()
     return y_pred

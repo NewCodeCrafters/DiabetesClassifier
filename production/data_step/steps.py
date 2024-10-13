@@ -6,6 +6,7 @@ from .func import LoadData, SplitInFour, SplitInTwo, FeatureEngineering
 from .utils import ct
 
 
+
 @step(enable_cache=False)
 def data_step(filepath: str) -> Tuple[
     Annotated[pd.DataFrame, 'X'],
@@ -19,12 +20,12 @@ def data_step(filepath: str) -> Tuple[
     return X, y
     
     
-@step
-def preprocessing(X: pd.DataFrame) -> np.ndarray:
+@step()
+def preprocessing(X: pd.DataFrame) -> Annotated[np.ndarray, 'preprocessed_X']:
     fe = FeatureEngineering(X)
-    X = fe.engineer(ct)
+    preprocessed_X = fe.engineer(ct)
     
-    return X
+    return preprocessed_X
 
 
 @step
