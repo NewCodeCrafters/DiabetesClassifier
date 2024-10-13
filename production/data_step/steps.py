@@ -2,7 +2,7 @@ from zenml import step
 import numpy as np
 import pandas as pd
 from typing import Tuple, Annotated
-from .functions import LoadData, SplitInFour, SplitInTwo, FeatureEngineering
+from .func import LoadData, SplitInFour, SplitInTwo, FeatureEngineering
 from .utils import ct
 
 

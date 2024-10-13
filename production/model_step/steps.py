@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from typing import Dict, Tuple, Annotated
 from sklearn.base import ClassifierMixin
-from .functions import Models, Predictor, Evaluator
+from .func import Models, Predictor, Evaluator
 
 
 @step
